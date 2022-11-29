@@ -1,10 +1,3 @@
-<?php
-
-$con = new database();
-$con->connect();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,15 +15,18 @@ $con->connect();
 
 <body>
     <h1>Tasks List</h1>
+    <?php 
+        echo $_GET['message'] ?? '';
+    ?>
     <div class="container">
-        <form action="" method="post">
+        <form action="libs/validation.php" method="post">
             <input type="text" name="add_task" id="add_task" placeholder="for example: Dishwashing ...">
 
             <label for="important_task">Important</label>
-            <input type="checkbox" name="important_task" id="important_task">
+            <input type="checkbox" name="important_task" id="important_task" value="1">
             
-            <label for="important_task">Completed</label>
-            <input type="checkbox" name="completed_task" id="completed_task">
+            <label for="completed_task">Completed</label>
+            <input type="checkbox" name="completed_task" id="completed_task" value="1">
             <input type="submit" value="Add task">
         </form>
         <hr>

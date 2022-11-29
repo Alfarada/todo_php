@@ -27,6 +27,7 @@ class Database {
             ];
             $pdo = new PDO($connection, $this->user, $this->password, $options);
 
+            echo 'conexion exitosa...';
             return $pdo;
             
         } catch (PDOException $e) {
