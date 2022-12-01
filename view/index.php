@@ -15,16 +15,17 @@
 
 <body>
     <h1>Tasks List</h1>
-    <?php 
-        echo $_GET['message'] ?? '';
-    ?>
+
+    <!-- Task message status  -->
+    <?= $_GET['message'] ?? ''; ?>
+
     <div class="container">
         <form action="libs/validation.php" method="post">
             <input type="text" name="add_task" id="add_task" placeholder="for example: Dishwashing ...">
 
             <label for="important_task">Important</label>
             <input type="checkbox" name="important_task" id="important_task" value="1">
-            
+
             <label for="completed_task">Completed</label>
             <input type="checkbox" name="completed_task" id="completed_task" value="1">
             <input type="submit" value="Add task">
@@ -33,26 +34,20 @@
         <h2> Pending tasks</h2>
         <div class="container">
             <form action="" method="post">
-            
-            <?php
-            $conn = new Database();
-            $query = $conn->connect()->query('SELECT * FROM tasks');
-            $tasks = $query->fetchAll(PDO::FETCH_ASSOC);
-            // var_dump($tasks);
-            ?>
 
-            <?php if (empty($tasks)) : ?>
-                <ul>
-                  <p>'There are no pending tasks.'</p>
-                </ul>
-            <?php else: ?>
-                <ul>
-                <?php foreach ($tasks as $task => $value): ?>
-                    <li><?= $value['task'] ?><a href="#">important</a><a href="#">completed</a><a href="#">edit</a><a href="#">delete</a></li>
-                <?php endforeach ?>
-                </ul>
-            <?php endif ?>
-            
+                <!-- Get all tasks  -->
+                <?php if (empty($tasks)) : ?>
+                    <ul>
+                        <p>There are no pending tasks !!!</p>
+                    </ul>
+                <?php else : ?>
+                    <ul>
+                        <?php foreach ($tasks as $task => $value) : ?>
+                            <li><?= $value['task'] ?><a href="#">important</a><a href="#">completed</a><a href="#">edit</a><a href="#">delete</a></li>
+                        <?php endforeach ?>
+                    </ul>
+                <?php endif ?>
+
             </form>
         </div>
         <h2> Completed tasks</h2>
