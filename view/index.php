@@ -32,13 +32,28 @@
         <hr>
         <h2> Pending tasks</h2>
         <div class="container">
-            <ul>
-                <li>lorem ipsuma<a href="#">important</a><a href="#">completed</a><a href="#">edit</a><a href="#">delete</a></li>
-                <li>lorem ipsuma<a href="#">important</a><a href="#">completed</a><a href="#">edit</a><a href="#">delete</a></li>
-                <li>lorem ipsuma<a href="#">important</a><a href="#">completed</a><a href="#">edit</a><a href="#">delete</a></li>
-                <li>lorem ipsuma<a href="#">important</a><a href="#">completed</a><a href="#">edit</a><a href="#">delete</a></li>
-                <li>lorem ipsuma<a href="#">important</a><a href="#">completed</a><a href="#">edit</a><a href="#">delete</a></li>
-            </ul>
+            <form action="" method="post">
+            
+            <?php
+            $conn = new Database();
+            $query = $conn->connect()->query('SELECT * FROM tasks');
+            $tasks = $query->fetchAll(PDO::FETCH_ASSOC);
+            // var_dump($tasks);
+            ?>
+
+            <?php if (empty($tasks)) : ?>
+                <ul>
+                  <p>'There are no pending tasks.'</p>
+                </ul>
+            <?php else: ?>
+                <ul>
+                <?php foreach ($tasks as $task => $value): ?>
+                    <li><?= $value['task'] ?><a href="#">important</a><a href="#">completed</a><a href="#">edit</a><a href="#">delete</a></li>
+                <?php endforeach ?>
+                </ul>
+            <?php endif ?>
+            
+            </form>
         </div>
         <h2> Completed tasks</h2>
         <div class="container">
