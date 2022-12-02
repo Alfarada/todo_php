@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -82,7 +83,7 @@
 
             mark_all_tasks_label = $("<label>", {
                 for: "mark_all_tasks",
-                html: "mark all",
+                html: "Check all",
             });
 
             mark_all_tasks = $("<input>", {
@@ -96,8 +97,30 @@
             $tasks_list.prepend(mark_all_tasks_label);
             $tasks_list.prepend(mark_all_tasks);
 
+            
+            // mark all the boxes
+            $checkbox.on('click', function() {
+                var checkbox_legth = $checkbox.length,
+                    checked_boxes = 0;
+
+                $checkbox.each(function() {
+
+                    if ($(this).prop('checked')) {
+                        checked_boxes++;
+                        if (checkbox_legth === checked_boxes) {
+                            mark_all_tasks.prop('checked', true);
+                            // console.log('todos marcados');
+                        } else {
+                            mark_all_tasks.prop('checked', false);
+                            // console.log(checked + ' marcados');
+                        }
+                    }
+                })
+            });
+
             $("#mark_all_tasks").on('change', function() {
-                
+
+
                 if (!$(this).prop('checked')) {
 
                     $checkbox.each(function() {
