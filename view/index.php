@@ -38,7 +38,13 @@
                 <?php else : ?>
                     <ul>
                         <?php foreach ($tasks as $task => $value) : ?>
-                            <li><?= $value['task'] ?><a href="#">important</a><a href="#">completed</a><a href="#">edit</a><a href="#">delete</a></li>
+                            <li>
+                               <input type="checkbox" name="completed_2" id="completed_2">
+                               <?= $value['task'] ?>
+                               <a href="#">important</a>
+                               <a href="#">edit</a>
+                               <a href="#">delete</a>
+                            </li>
                         <?php endforeach ?>
                     </ul>
                 <?php endif ?>
