@@ -49,7 +49,7 @@ if ($isValidResponse($_POST)) {
 
         // return true;
         $message .= '<p>tarea registrada existosamente</p>';
-        header('Location: http://localhost/todo_php?message=' . urlencode($message));
+        header('Location: http://localhost/todo_php');
     } catch(PDOException $e){
         echo '<p>no se pudo agregar la tarea'. $e->getMessage() . '</p>';
     }
