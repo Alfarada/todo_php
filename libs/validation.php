@@ -36,7 +36,7 @@ $isValidResponse = function ($request) use (&$request_data): array|bool {
 
 if ($isValidResponse($_POST)) {
     
-    // insert 
+    // insert task
     $conn = new Database();
     $sql = 'INSERT INTO tasks (task, status, important) VALUES (:task, :status, :important)';
     $query = $conn->connect()->prepare($sql);

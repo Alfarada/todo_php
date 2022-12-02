@@ -30,7 +30,7 @@
         <hr>
         <h2> Pending tasks</h2>
         <div class="container">
-            <form action="#" method="post">
+            <form action="de" method="post">
 
                 <!-- Get all tasks  -->
                 <?php if (empty($tasks)) : ?>
@@ -45,7 +45,7 @@
                                 <?= $task['task']; ?>
                                 <a href="#">important</a>
                                 <a href="#">edit</a>
-                                <a href="#">delete</a>
+                                <a href="libs/delete_tasks.php?id=<?=$task['id']; ?>">delete</a>
                             </li>
                         <?php endforeach ?>
                     </ul>

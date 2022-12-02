@@ -64,6 +64,5 @@ $(function () {
         $checkbox.each(function () {
             $(this).prop("checked", true);
         });
-
     });
 })
