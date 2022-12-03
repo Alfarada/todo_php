@@ -11,6 +11,7 @@
 
 <body>
     <h1>Tasks List</h1>
+
     <div class="container">
         <form action="libs/validation.php" method="post">
             <input type="text" name="add_task" id="add_task" placeholder="for example: Dishwashing ...">
@@ -28,7 +29,7 @@
             <form action="de" method="post">
 
                 <!-- Get pending tasks  -->
-                <?php if (empty($tasks)) : ?>
+                <?php if (empty($tasks) || !$count_pending_tasks) : ?>
                     <ul>
                         <p>There are no pending tasks !!!</p>
                     </ul>
