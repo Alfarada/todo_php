@@ -11,11 +11,6 @@
 
 <body>
     <h1>Tasks List</h1>
-
-    <!-- Task message status  -->
-    <?php // echo $_GET['message'] ?? ''; 
-    ?>
-
     <div class="container">
         <form action="libs/validation.php" method="post">
             <input type="text" name="add_task" id="add_task" placeholder="for example: Dishwashing ...">
@@ -42,12 +37,7 @@
                         <?php foreach ($tasks as $key => $task) : ?>
                             <?php if (!$task['status']) : ?>
                                 <li>
-                                    <!-- <input type="checkbox" name="completed_<?php // echo $task['id']; 
-                                                                                ?>" id="completed_<?php // echo $task['id']; 
-                                                                                                    ?>"> -->
                                     <?= $task['task']; ?>
-                                    <!-- <a href="#">important</a> -->
-                                    <!-- <a href="#">edit</a> -->
                                     <a href="libs/completed_task.php?id=<?= $task['id']; ?>">completed</a>
                                     <a href="libs/delete_task.php?id=<?= $task['id']; ?>">delete</a>
                                 </li>
@@ -65,8 +55,7 @@
             <?php if (!empty($tasks)) : ?>
                 <h2> Completed tasks</h2>
                 <ul>
-                    <?php if ($count_completed_tasks === 0) : ?>
-
+                    <?php if (!$count_completed_tasks) : ?>
                         <li>
                             <p>No hay tareas completadas</p>
                         </li>
