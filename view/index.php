@@ -41,10 +41,10 @@
                     <ul id="ul-pending-tasks">
                         <?php foreach ($tasks as $key => $task) : ?>
                             <li>
-                                <input type="checkbox" name="completed_<?= $task['id']; ?>" id="completed_<?= $task['id']; ?>">
+                                <!-- <input type="checkbox" name="completed_<?php // echo $task['id']; ?>" id="completed_<?php // echo $task['id']; ?>"> -->
                                 <?= $task['task']; ?>
-                                <a href="#">important</a>
-                                <a href="#">edit</a>
+                                <!-- <a href="#">important</a> -->
+                                <!-- <a href="#">edit</a> -->
                                 <a href="libs/delete_tasks.php?id=<?=$task['id']; ?>">delete</a>
                             </li>
                         <?php endforeach ?>

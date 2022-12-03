@@ -8,26 +8,26 @@ $(function () {
         return;
     }
 
-    send_task_btn = $("<input>", {
-        value: "send tasks",
-        type: "submit"
-    });
+    // send_task_btn = $("<input>", {
+    //     value: "send tasks",
+    //     type: "submit"
+    // });
 
-    mark_all_tasks_label = $("<label>", {
-        for: "mark_all_tasks",
-        html: "Check all",
-    });
+    // mark_all_tasks_label = $("<label>", {
+    //     for: "mark_all_tasks",
+    //     html: "Check all",
+    // });
 
-    mark_all_tasks = $("<input>", {
-        name: "mark_all_tasks",
-        "id": "mark_all_tasks",
-        value: 1,
-        type: "checkbox"
-    });
+    // mark_all_tasks = $("<input>", {
+    //     name: "mark_all_tasks",
+    //     "id": "mark_all_tasks",
+    //     value: 1,
+    //     type: "checkbox"
+    // });
 
-    $tasks_list.prepend(send_task_btn);
-    $tasks_list.prepend(mark_all_tasks_label);
-    $tasks_list.prepend(mark_all_tasks);
+    // $tasks_list.prepend(send_task_btn);
+    // $tasks_list.prepend(mark_all_tasks_label);
+    // $tasks_list.prepend(mark_all_tasks);
 
 
     // check the "check all" input checkbox
