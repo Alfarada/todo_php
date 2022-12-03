@@ -13,47 +13,38 @@
 <body>
     <h1>Tasks List</h1>
 
-    <!-- Task message status  -->
-    <?php // echo $_GET['message'] ?? ''; 
-    ?>
+    <div class="container">
+        <form action="libs/validation.php" method="post">
+            <input type="text" name="add_task" id="add_task" placeholder="for example: Dishwashing ...">
 
-    <div class="container ">
-        
-            <form class="adder form-elements" action="libs/validation.php" method="post">
-                <div>
-                <input class="writing-bar" type="text" name="add_task" id="add_task" placeholder="for example: Dishwashing ...">
-                
-                <label for="important_task">important</i></label>
-                <input type="checkbox" name="important_task" id="important_task" value="1">
-                
-                <label for="completed_task">completed</i></label>
-                <input type="checkbox" name="completed_task" id="completed_task" value="1">
-                </div>
-                <div>
-                    <input class="buttom" type="submit" value="Add task">
-                </div>
-       
+            <label for="important_task">Important</label>
+            <input type="checkbox" name="important_task" id="important_task" value="1">
+
+            <label for="completed_task">Completed</label>
+            <input type="checkbox" name="completed_task" id="completed_task" value="1">
+            <input type="submit" value="Add task">
         </form>
         <hr>
         <div class="container block-task">
             <h2> Pending tasks</h2>
             <form action="de" method="post">
 
-                <!-- Get all tasks  -->
-                <?php if (empty($tasks)) : ?>
+                <!-- Get pending tasks  -->
+                <?php if (empty($tasks) || !$count_pending_tasks) : ?>
                     <ul>
                         <p>There are no pending tasks !!!</p>
                     </ul>
                 <?php else : ?>
                     <ul id="ul-pending-tasks">
                         <?php foreach ($tasks as $key => $task) : ?>
-                            <li>
-                                <!-- <input type="checkbox" name="completed_<?php // echo $task['id']; ?>" id="completed_<?php // echo $task['id']; ?>"> -->
-                                <?= $task['task']; ?>
-                                <!-- <a href="#">important</a> -->
-                                <!-- <a href="#">edit</a> -->
-                                <a href="libs/delete_tasks.php?id=<?=$task['id']; ?>">delete</a>
-                            </li>
+                            <?php if (!$task['status']) : ?>
+                                <li>
+                                    <?= $task['task']; ?>
+                                    <a href="libs/completed_task.php?id=<?= $task['id']; ?>">completed</a>
+                                    <a href="libs/delete_task.php?id=<?= $task['id']; ?>">delete</a>
+                                </li>
+                            <?php endif ?>
+
                         <?php endforeach ?>
                     </ul>
                 <?php endif ?>
