@@ -49,7 +49,7 @@
                                     <!-- <a href="#">important</a> -->
                                     <!-- <a href="#">edit</a> -->
                                     <a href="libs/completed_task.php?id=<?= $task['id']; ?>">completed</a>
-                                    <a href="libs/delete_tasks.php?id=<?= $task['id']; ?>">delete</a>
+                                    <a href="libs/delete_task.php?id=<?= $task['id']; ?>">delete</a>
                                 </li>
                             <?php endif ?>
 
@@ -64,25 +64,21 @@
             <!-- Get completed tasks  -->
             <?php if (!empty($tasks)) : ?>
                 <h2> Completed tasks</h2>
-                <?php foreach ($tasks as $key => $task) : ?>
-                    <?php if ($task['status']) : ?>
+                <ul>
+                    <?php if ($count_completed_tasks === 0) : ?>
+
                         <li>
-                            <!-- <input type="checkbox" name="completed_<?php // echo $task['id']; 
-                                                                        ?>" id="completed_<?php // echo $task['id']; 
-                                                                                                ?>"> -->
-                            <?= $task['task']; ?>
-                            <!-- <a href="#">important</a> -->
-                            <!-- <a href="#">edit</a> -->
-                            <!-- <a href="libs/completed_task.php?id=<?php // echo $task['id']; 
-                                                                        ?>">completed</a> -->
-                            <!-- <a href="libs/delete_tasks.php?id=<?php // echo $task['id']; 
-                                                                    ?>">delete</a> -->
-                            <a href="#">Undo</a>
+                            <p>No hay tareas completadas</p>
                         </li>
-                    <?php endif ?>
-                <?php endforeach; ?>
-
-
+                    <?php endif; ?>
+                    <?php foreach ($tasks as $key => $task) : ?>
+                        <?php if ($task['status']) : ?>
+                            <li>
+                                <a href="libs/undo_task.php?id=<?= $task['id']; ?>">Undo</a>
+                            </li>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </ul>
             <?php endif ?>
         </div>
     </div>
