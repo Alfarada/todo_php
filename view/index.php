@@ -54,18 +54,30 @@
         </div>
         <br>
         <div class="container block-task">
+
             <h2> Completed tasks</h2>
-            <ul>
-                <li>lorem ipsuma<a href="#">undo</a></li>
-                <li>lorem ipsuma<a href="#">undo</a></li>
-                <li>lorem ipsuma<a href="#">undo</a></li>
-                <li>lorem ipsuma<a href="#">undo</a></li>
-                <li>lorem ipsuma<a href="#">undo</a></li>
+            <ul id="ul-pending-tasks">
+                <?php if (!$count_completed_tasks) : ?>
+                    <p> No completed tasks</p>
+                <?php endif; ?>
+
+                <?php foreach ($tasks as $key => $task) : ?>
+                    <?php if ($task['status']) : ?>
+                        <li>
+                            <?= $task['task']; ?>
+                            <a href="libs/undo_task.php?id=<?= $task['id']; ?>">UNDO</a>
+                        </li>
+                    <?php endif ?>
+
+                <?php endforeach ?>
             </ul>
+
+
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="public/js/index.js"></script>
 </body>
 <br>
+
 </html>
