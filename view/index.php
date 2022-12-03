@@ -32,7 +32,7 @@
         <div class="container">
             <form action="de" method="post">
 
-                <!-- Get all tasks  -->
+                <!-- Get pending tasks  -->
                 <?php if (empty($tasks)) : ?>
                     <ul>
                         <p>There are no pending tasks !!!</p>
@@ -40,28 +40,50 @@
                 <?php else : ?>
                     <ul id="ul-pending-tasks">
                         <?php foreach ($tasks as $key => $task) : ?>
-                            <li>
-                                <!-- <input type="checkbox" name="completed_<?php // echo $task['id']; ?>" id="completed_<?php // echo $task['id']; ?>"> -->
-                                <?= $task['task']; ?>
-                                <!-- <a href="#">important</a> -->
-                                <!-- <a href="#">edit</a> -->
-                                <a href="libs/delete_tasks.php?id=<?=$task['id']; ?>">delete</a>
-                            </li>
+                            <?php if (!$task['status']) : ?>
+                                <li>
+                                    <!-- <input type="checkbox" name="completed_<?php // echo $task['id']; 
+                                                                                ?>" id="completed_<?php // echo $task['id']; 
+                                                                                                    ?>"> -->
+                                    <?= $task['task']; ?>
+                                    <!-- <a href="#">important</a> -->
+                                    <!-- <a href="#">edit</a> -->
+                                    <a href="libs/completed_task.php?id=<?= $task['id']; ?>">completed</a>
+                                    <a href="libs/delete_tasks.php?id=<?= $task['id']; ?>">delete</a>
+                                </li>
+                            <?php endif ?>
+
                         <?php endforeach ?>
                     </ul>
                 <?php endif ?>
 
             </form>
         </div>
-        <h2> Completed tasks</h2>
+
         <div class="container">
-            <ul>
-                <li>lorem ipsuma<a href="#">undo</a></li>
-                <li>lorem ipsuma<a href="#">undo</a></li>
-                <li>lorem ipsuma<a href="#">undo</a></li>
-                <li>lorem ipsuma<a href="#">undo</a></li>
-                <li>lorem ipsuma<a href="#">undo</a></li>
-            </ul>
+            <!-- Get completed tasks  -->
+            <?php if (!empty($tasks)) : ?>
+                <h2> Completed tasks</h2>
+                <?php foreach ($tasks as $key => $task) : ?>
+                    <?php if ($task['status']) : ?>
+                        <li>
+                            <!-- <input type="checkbox" name="completed_<?php // echo $task['id']; 
+                                                                        ?>" id="completed_<?php // echo $task['id']; 
+                                                                                                ?>"> -->
+                            <?= $task['task']; ?>
+                            <!-- <a href="#">important</a> -->
+                            <!-- <a href="#">edit</a> -->
+                            <!-- <a href="libs/completed_task.php?id=<?php // echo $task['id']; 
+                                                                        ?>">completed</a> -->
+                            <!-- <a href="libs/delete_tasks.php?id=<?php // echo $task['id']; 
+                                                                    ?>">delete</a> -->
+                            <a href="#">Undo</a>
+                        </li>
+                    <?php endif ?>
+                <?php endforeach; ?>
+
+
+            <?php endif ?>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
