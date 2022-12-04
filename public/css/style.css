@@ -2,27 +2,29 @@
    display: flex;
    flex-direction: column;
    align-items: center;
-   text-align: center;   
+   text-align: center;
 }
 body {
-    background-color: #CCD5F3;
-    font-family:'Times New Roman', Times, serif ;
+    /* background-color: #CCD5F3; */
+    /* font-family:'Times New Roman', Times, serif ; */
+    font-family: 'Roboto', sans-serif;
+    color: #3d65e6;
 }
 
 h1 {
     font-size: 3rem;
-    font-family:Arial, Helvetica, sans-serif;
-    font-weight: 100;
-    margin: 2rem;
-    padding: 2rem;
+    /* font-family:Arial, Helvetica, sans-serif; */
+    /* font-weight: 100; */
+    margin: 1rem;
+    padding: 1rem;
     text-align: center;
     }
 
 .adder {
     width: 35rem;
-    padding:3rem 5rem;
-    border-radius: .5rem;
-    box-shadow: rgb(192, 189, 189) 0 5px 10px;
+    padding:1rem 2rem;
+    /* border-radius: .5rem; */
+    /* box-shadow: rgb(192, 189, 189) 0 5px 10px; */
     background-color: white;
 }    
 
@@ -32,15 +34,27 @@ h1 {
 }
 
 .writing-bar {
-    width: 20rem;
-    height: 1.2rem;
-    border-width: thin;
-    border-radius: 0.5rem;
+    width: 12rem;
+    border: none;
+    height: 1.6rem;
+    transition: width 0.4s ease-in-out;
+    color: #3d65e6;
+    font-weight: 500;
+    font-size: 1.2rem;
 }
 
-.start:hover {
-    color: yellow;
+.writing-bar::placeholder {
+    font-weight: 500;
+    color: #b1b0b0;
+    font-size: 1rem;
 }
+
+.writing-bar:focus {
+    outline: none;
+    border-bottom: 2px solid #3d65e6;
+    width: 45%;
+}
+
 
 .buttom {
     margin-top: 1.8rem;
@@ -48,14 +62,18 @@ h1 {
     height: 1.6rem;
     border-radius: 1rem;
     background-color: #CCD5F3;
-    border: 0px;    
+    border: 0px;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #3d65e6;  
 }
 
 .buttom:hover {
-    width: 25rem;
-    height: 2.0rem;
+    /* width: 25rem;
+    height: 2.0rem; */
     color: white;
-    background-color: black;
+    background-color: #3d65e6;
+
 }
 
 h2 {
@@ -64,9 +82,31 @@ h2 {
 }
 
 .block-task{
+    /* display: none; */
     width: 35rem;
     padding:.5rem 5rem;
-    border-radius: .5rem;
-    box-shadow: rgb(192, 189, 189) 0 5px 10px;
+    /* border-radius: .5rem;
+    box-shadow: rgb(192, 189, 189) 0 5px 10px; */
     background-color: white;
+}
+
+ul > li {
+
+    list-style: none;
+    text-align: start;
+}
+
+li > a {
+    color: #3d65e6;
+}
+
+#add-task-form {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.add-task-icon {
+    cursor: pointer;
+    font-size: 1.7rem;
 }

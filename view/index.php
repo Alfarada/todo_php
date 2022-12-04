@@ -7,23 +7,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/css/style.css">
-    <script src="https://kit.fontawesome.com/a7b6687193.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <title>Tasks list</title>
 </head>
 
 <body>
-    <h1>Tasks List</h1>
+    <h1>TODO list</h1>
 
     <div class="container">
-        <form action="libs/validation.php" method="post">
-            <input type="text" name="add_task" id="add_task" placeholder="for example: Dishwashing ...">
+    
+        <form id="add-task-form" class="adder" action="libs/validation.php" method="post">
+            <input class="writing-bar" type="text" name="add_task" id="add_task" placeholder="Write your homework here...">
 
-            <label for="important_task">Important</label>
-            <input type="checkbox" name="important_task" id="important_task" value="1">
+            <!-- <label for="important_task">Important</label> -->
+            <!-- <input type="checkbox" name="important_task" id="important_task" value="1"> -->
 
-            <label for="completed_task">Completed</label>
-            <input type="checkbox" name="completed_task" id="completed_task" value="1">
-            <input type="submit" value="Add task">
+            <!-- <label for="completed_task">Completed</label> -->
+            <!-- <input type="checkbox" name="completed_task" id="completed_task" value="1">
+            <i class="fa-solid fa-check"></i> -->
+            
+            <!-- <div> -->
+                <!-- <input class="button" type="submit" value="add task"> -->
+                <i id="add-task" class="fa-solid fa-plus add-task-icon"></i>
+            <!-- </div> -->
         </form>
         <hr>
         <div class="container block-task">
@@ -40,10 +47,13 @@
                         <?php foreach ($tasks as $key => $task) : ?>
                             <?php if (!$task['status']) : ?>
                                 <li>
-                                    <?= $task['task']; ?>
-                                    <a href="libs/completed_task.php?id=<?= $task['id']; ?>">completed</a>
-                                    <a href="libs/delete_task.php?id=<?= $task['id']; ?>">delete</a>
+                                    <p><?= $task['task']; ?></p>
+                                    
+                                    <a href="libs/completed_task.php?id=<?= $task['id']; ?>"><i class="fa-solid fa-check"></i></a>
+                                    
+                                    <a href="libs/delete_task.php?id=<?= $task['id']; ?>"><i class="fa-solid fa-trash"></i></a>
                                 </li>
+                                <hr>
                             <?php endif ?>
 
                         <?php endforeach ?>
@@ -64,9 +74,10 @@
                 <?php foreach ($tasks as $key => $task) : ?>
                     <?php if ($task['status']) : ?>
                         <li>
-                            <?= $task['task']; ?>
+                            <p><?= $task['task']; ?></p>
                             <a href="libs/undo_task.php?id=<?= $task['id']; ?>">UNDO</a>
                         </li>
+                        <hr>
                     <?php endif ?>
 
                 <?php endforeach ?>
