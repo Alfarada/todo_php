@@ -19,5 +19,8 @@ $(function () {
 
     });
 
-    $('.message-success:hidden').fadeOut();
+    setTimeout(function () {
+        $('.message-success').fadeOut(1500);    
+    }, 2000);
+    
 })
