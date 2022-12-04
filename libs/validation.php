@@ -48,8 +48,8 @@ if ($isValidResponse($_POST)) {
         ]);
 
         // return true;
-        $message .= '<p>tarea registrada existosamente</p>';
-        header('Location: http://localhost/todo_php');
+        $message .= ' You have added a new task';
+        header('Location: http://localhost/todo_php?message=' . $message);
     } catch(PDOException $e){
         echo '<p>no se pudo agregar la tarea'. $e->getMessage() . '</p>';
     }

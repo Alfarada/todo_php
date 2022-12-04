@@ -55,6 +55,26 @@ h1 {
     width: 45%;
 }
 
+.wrong-bar {
+    border-bottom: 2px solid red;
+}
+
+.wrong {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+.hide {
+    display: none;
+}
+
+.task-form-message {
+    font-size: .8rem;
+}
+
 
 .buttom {
     margin-top: 1.8rem;
