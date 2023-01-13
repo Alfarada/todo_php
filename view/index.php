@@ -17,8 +17,7 @@
 <body>
     <h1>TODO list</h1>
 
-    <div class="container">
-
+    <div class="container-add-task-form">
         <form id="add-task-form" class="adder" action="libs/validation.php" method="post">
 
             <input class="writing-bar" type="text" name="add_task" id="add_task" placeholder="Write your homework here...">
@@ -26,32 +25,37 @@
 
         </form>
         <p class="task-form-message message-wrong hide"><i class="fa-solid fa-circle-xmark"></i> Please make sure you are writing a valid task</p>
-        
-        <?php if(isset($_GET['message'])) : ?>
-            <p class="task-form-message message-success success hide"><i class="fa-solid fa-circle-check"></i><?php echo $_GET['message'] ?? ''; ?></p>
-        <?php endif; ?>
-        <hr>
-        <div class="container block-task">
-            <h2> Pending tasks</h2>
-            <form action="de" method="post">
+        <!-- <hr> -->
+    </div>
 
-                <!-- Get pending tasks  -->
+    <?php if (isset($_GET['message'])) : ?>
+    <div class="container-status-message">
+        <p class="task-form-message message-success success"><i class="fa-solid fa-circle-check"></i><?php echo $_GET['message'] ?? 'empty'; ?></p>
+    </div>
+    <?php endif; ?>
+
+    <div class="container-tasks-list">
+        <!-- <div class="container block-task-wrap"> -->
+        <div class="container-tasks-pending">
+            <form action="" method="post">
+                <h2> Pending tasks</h2>
                 <?php if (empty($tasks) || !$count_pending_tasks) : ?>
-                    <ul>
-                        <p>There are no pending tasks !!!</p>
+                    <ul class="ul-pending-tasks">
+                        <p class="wrong">There are no pending tasks</p>
                     </ul>
                 <?php else : ?>
-                    <ul id="ul-pending-tasks">
+                    <ul class="ul-pending-tasks">
                         <?php foreach ($tasks as $key => $task) : ?>
                             <?php if (!$task['status']) : ?>
                                 <li>
                                     <p><?= $task['task']; ?></p>
 
-                                    <a href="libs/completed_task.php?id=<?= $task['id']; ?>"><i class="fa-solid fa-check"></i></a>
-
-                                    <a href="libs/delete_task.php?id=<?= $task['id']; ?>"><i class="fa-solid fa-trash"></i></a>
+                                    <div class="container-task-icons">
+                                        <a href="libs/completed_task.php?id=<?= $task['id']; ?>"><i class="fa-solid fa-check"></i></a>
+                                        <a href="libs/delete_task.php?id=<?= $task['id']; ?>"><i class="fa-solid fa-trash"></i></a>
+                                    </div>
                                 </li>
-                                <hr>
+                                <!-- <hr> -->
                             <?php endif ?>
 
                         <?php endforeach ?>
@@ -61,27 +65,30 @@
             </form>
         </div>
         <br>
-        <div class="container block-task">
+        <div class="container-tasks-completed">
 
-            <h2> Completed tasks</h2>
-            <ul id="ul-pending-tasks">
-                <?php if (!$count_completed_tasks) : ?>
-                    <p> No completed tasks</p>
-                <?php endif; ?>
+            <div class="tasks-completed-wrap">
+                <h2> Completed tasks</h2>
+                <ul class="ul-pending-tasks">
+                    <?php if (!$count_completed_tasks) : ?>
+                        <p class="wrong"> No completed tasks</p>
+                    <?php endif; ?>
 
-                <?php foreach ($tasks as $key => $task) : ?>
-                    <?php if ($task['status']) : ?>
-                        <li>
-                            <p><?= $task['task']; ?></p>
-                            <a href="libs/undo_task.php?id=<?= $task['id']; ?>">UNDO</a>
-                        </li>
-                        <hr>
-                    <?php endif ?>
+                    <?php foreach ($tasks as $key => $task) : ?>
+                        <?php if ($task['status']) : ?>
+                            <li>
+                                <p><?= $task['task']; ?></p>
+                                <div class="container-task-icons">
+                                    <a href="libs/undo_task.php?id=<?= $task['id']; ?>" class="undo-link">UNDO</a>
+                                </div>
+                            </li>
+                            <!-- <hr> -->
+                        <?php endif ?>
 
-                <?php endforeach ?>
-            </ul>
+                    <?php endforeach ?>
+                </ul>
 
-
+            </div>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>

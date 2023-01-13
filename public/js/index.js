@@ -9,7 +9,7 @@ $(function () {
         if(isEmptyWritingBar) {
             
             $(".writing-bar").addClass("wrong-bar");
-            // $(".task-form-message").removeClass('hide').addClass('wrong');
+            $(".task-form-message").removeClass('hide').addClass('wrong');
             $(".task-form-message").addClass('wrong');
             $(".task-form-message:hidden").first().fadeIn("slow");
 

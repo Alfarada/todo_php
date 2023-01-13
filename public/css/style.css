@@ -1,36 +1,18 @@
-.container {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   text-align: center;
-}
 body {
-    /* background-color: #CCD5F3; */
-    /* font-family:'Times New Roman', Times, serif ; */
     font-family: 'Roboto', sans-serif;
     color: #3d65e6;
 }
 
 h1 {
     font-size: 3rem;
-    /* font-family:Arial, Helvetica, sans-serif; */
-    /* font-weight: 100; */
     margin: 1rem;
     padding: 1rem;
     text-align: center;
-    }
+}
 
-.adder {
-    width: 35rem;
-    padding:1rem 2rem;
-    /* border-radius: .5rem; */
-    /* box-shadow: rgb(192, 189, 189) 0 5px 10px; */
-    background-color: white;
-}    
-
-.form-elements{
+.container-add-task-form {
     display: flex;
-    flex-flow: column wrap;
+    justify-content: center;
 }
 
 .writing-bar {
@@ -60,7 +42,7 @@ h1 {
 }
 
 .wrong {
-    color: red;
+    color: #FA8E88;
 }
 
 .success {
@@ -85,12 +67,11 @@ h1 {
     border: 0px;
     font-weight: bold;
     font-size: 1rem;
-    color: #3d65e6;  
+    color: #3d65e6;
 }
 
 .buttom:hover {
-    /* width: 25rem;
-    height: 2.0rem; */
+
     color: white;
     background-color: #3d65e6;
 
@@ -101,16 +82,7 @@ h2 {
     margin: .5rem;
 }
 
-.block-task{
-    /* display: none; */
-    width: 35rem;
-    padding:.5rem 5rem;
-    /* border-radius: .5rem;
-    box-shadow: rgb(192, 189, 189) 0 5px 10px; */
-    background-color: white;
-}
-
-ul > li {
+ul>li {
 
     list-style: none;
     text-align: start;
@@ -120,13 +92,64 @@ li > a {
     color: #3d65e6;
 }
 
-#add-task-form {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
 .add-task-icon {
     cursor: pointer;
     font-size: 1.7rem;
+}
+
+.container-tasks-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-task-icons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.ul-pending-tasks {
+    padding: 0;
+    text-align: center;
+}
+
+.ul-pending-tasks li {
+    display: flex;
+    justify-content: space-between;
+    height: 1.7rem;
+}
+
+.ul-pending-tasks li p {
+    display: flex;
+    align-self: center;
+}
+
+.container-tasks-pending,
+.container-tasks-completed {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container-tasks-pending form, 
+.tasks-completed-wrap {
+    width: 60%;
+}
+
+.container-tasks-pending h2,
+.container-tasks-completed h2 {
+    text-align: center;
+}
+
+.container-tasks-completed li p {
+    text-decoration: line-through;
+    color: #A9B4CF;
+}
+
+.container-tasks-completed .undo-link {
+    text-decoration: none;
+}
+
+.container-status-message {
+    text-align: center;
 }
