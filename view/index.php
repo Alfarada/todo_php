@@ -38,7 +38,7 @@
         <!-- <div class="container block-task-wrap"> -->
         <div class="container-tasks-pending">
             <form action="" method="post">
-                <h2> Pending tasks</h2>
+                <h2> Pending</h2>
                 <?php if (empty($tasks) || !$count_pending_tasks) : ?>
                     <ul class="ul-pending-tasks">
                         <p class="wrong">There are no pending tasks</p>
@@ -68,7 +68,7 @@
         <div class="container-tasks-completed">
 
             <div class="tasks-completed-wrap">
-                <h2> Completed tasks</h2>
+                <h2> Completed</h2>
                 <ul class="ul-pending-tasks">
                     <?php if (!$count_completed_tasks) : ?>
                         <p class="wrong"> No completed tasks</p>

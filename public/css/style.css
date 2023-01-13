@@ -117,6 +117,12 @@ li > a {
     display: flex;
     justify-content: space-between;
     height: 1.7rem;
+
+    background-color: beige;
+    height: 2rem;
+    padding: 5px 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 .ul-pending-tasks li p {
@@ -152,4 +158,11 @@ li > a {
 
 .container-status-message {
     text-align: center;
+}
+
+@media screen and (min-width: 576px) {
+    .container-tasks-list {
+        display: flex;
+        flex-direction: row;
+    }
 }
