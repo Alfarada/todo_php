@@ -34,7 +34,7 @@ h1 {
 .writing-bar:focus {
     outline: none;
     border-bottom: 2px solid #3d65e6;
-    width: 45%;
+    width: 80%;
 }
 
 .wrong-bar {
@@ -82,7 +82,7 @@ h2 {
     margin: .5rem;
 }
 
-ul>li {
+ul > li {
 
     list-style: none;
     text-align: start;

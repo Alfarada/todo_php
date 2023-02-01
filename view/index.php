@@ -24,15 +24,18 @@
             <i id="add-task" class="fa-solid fa-plus add-task-icon"></i>
 
         </form>
-        <p class="task-form-message message-wrong hide"><i class="fa-solid fa-circle-xmark"></i> Please make sure you are writing a valid task</p>
+        <!-- <p class="task-form-message message-wrong hide"><i class="fa-solid fa-circle-xmark"></i> Please make sure you are writing a valid task</p> -->
         <!-- <hr> -->
     </div>
 
-    <?php if (isset($_GET['message'])) : ?>
+
     <div class="container-status-message">
-        <p class="task-form-message message-success success"><i class="fa-solid fa-circle-check"></i><?php echo $_GET['message'] ?? 'empty'; ?></p>
+        <p class="task-form-message message-wrong hide"><i class="fa-solid fa-circle-xmark"></i> Please make sure you are writing a valid task</p>
+        
+        <?php if (isset($_GET['message'])) : ?>
+            <p class="task-form-message message-success success"><i class="fa-solid fa-circle-check"></i><?php echo $_GET['message'] ?? 'empty'; ?></p>
+        <?php endif; ?>
     </div>
-    <?php endif; ?>
 
     <div class="container-tasks-list">
         <!-- <div class="container block-task-wrap"> -->
